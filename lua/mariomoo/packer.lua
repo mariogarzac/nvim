@@ -36,6 +36,9 @@ return require('packer').startup(function(use)
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
 
+    -- autoclose 
+    use 'm4xshen/autoclose.nvim'
+
     -- lsp-zero
 	use {
 		'VonHeikemen/lsp-zero.nvim',
