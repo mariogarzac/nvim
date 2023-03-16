@@ -39,6 +39,9 @@ return require('packer').startup(function(use)
     -- autoclose 
     use 'm4xshen/autoclose.nvim'
 
+    -- nvim-comment
+    use 'terrortylor/nvim-comment'
+
     -- lsp-zero
 	use {
 		'VonHeikemen/lsp-zero.nvim',
