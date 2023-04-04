@@ -27,8 +27,9 @@ return require('packer').startup(function(use)
 	use ('tpope/vim-fugitive')
 
 	-- Colorscheme
+    use 'shaunsingh/nord.nvim'
 	use 'folke/tokyonight.nvim'
-	vim.cmd('colorscheme tokyonight-storm')
+	vim.cmd[[colorscheme tokyonight-storm]]
 
     -- lualine
     use {
@@ -41,6 +42,8 @@ return require('packer').startup(function(use)
 
     -- nvim-comment
     use 'terrortylor/nvim-comment'
+
+    use 'lewis6991/gitsigns.nvim'
 
     -- lsp-zero
 	use {
