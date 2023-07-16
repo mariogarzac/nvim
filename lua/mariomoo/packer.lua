@@ -37,12 +37,16 @@ return require('packer').startup(function(use)
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
 
-    -- autoclose 
+     -- autoclose 
     use 'm4xshen/autoclose.nvim'
+
+    -- autotag 
+    use 'windwp/nvim-ts-autotag'
 
     -- nvim-comment
     use 'terrortylor/nvim-comment'
 
+    -- git-signs
     use 'lewis6991/gitsigns.nvim'
 
     -- lsp-zero
@@ -65,7 +69,7 @@ return require('packer').startup(function(use)
 
 			-- Snippets
 			{'L3MON4D3/LuaSnip'},             -- Required
-			{'rafamadriz/friendly-snippets'}, -- Optional
+			-- {'rafamadriz/friendly-snippets'}, -- Optional
 		}
 	}
 end)
