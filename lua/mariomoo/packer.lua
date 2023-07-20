@@ -26,6 +26,13 @@ return require('packer').startup(function(use)
 	-- Fugitive
 	use ('tpope/vim-fugitive')
 
+
+    -- Vim Tmux Navigator
+    use {
+        'christoomey/vim-tmux-navigator',
+        lazy=false
+    }
+
 	-- Colorscheme
     use 'shaunsingh/nord.nvim'
 	use 'folke/tokyonight.nvim'
