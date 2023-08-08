@@ -44,8 +44,8 @@ return require('packer').startup(function(use)
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
 
-     -- autoclose 
-    use 'm4xshen/autoclose.nvim'
+    --  -- autoclose 
+    -- use 'm4xshen/autoclose.nvim'
 
     -- autotag 
     use 'windwp/nvim-ts-autotag'
