@@ -14,9 +14,6 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- move line up while keeping cursor at the beginning 
 vim.keymap.set("n","J","mzJ`z")
 
--- create a terminal in a new tab
-vim.keymap.set("n", "<C-t>", ":tabnew | term \n")
-
 -- paste over selected line without losing the yanked line
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
