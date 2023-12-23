@@ -2,7 +2,12 @@ local lsp = require('lsp-zero').preset({
     name = 'recommended'
 })
 
-lsp.preset('recommended')
+lsp.nvim_workspace()
+
+lsp.ensure_installed = ({
+    'gopls',
+    'templ',
+})
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
@@ -19,7 +24,7 @@ lsp.setup_nvim_cmp({
 
 lsp.set_basic_mappings = false
 
-lsp.on_attach(function(client, bufnr)
+lsp.on_attach(function(_, bufnr)
     local opts = {buffer = bufnr, remap = false}
 
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -35,3 +40,7 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.setup()
+
+vim.diagnostic.config({
+    virtual_text = true
+})

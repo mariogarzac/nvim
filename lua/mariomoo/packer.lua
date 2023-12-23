@@ -1,7 +1,7 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
 -- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
+vim.cmd.packadd('packer.nvim')
 
 return require('packer').startup(function(use)
 	-- Packer can manage itself
@@ -9,22 +9,24 @@ return require('packer').startup(function(use)
 
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.x',
-		-- or                            , branch = '0.1.x',
-		requires = { {'nvim-lua/plenary.nvim'} }
+		 requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
 	-- Treesitter
-	use ('nvim-treesitter/nvim-treesitter',{ run = ':TSUpdate'})
-	use ('nvim-treesitter/playground')
+	use {
+        "nvim-treesitter/nvim-treesitter",
+        {run = ':TSUpdate'}
+    }
+	use 'nvim-treesitter/playground'
 
 	-- Harpoon
-	 use ('ThePrimeagen/harpoon')
+	 use 'ThePrimeagen/harpoon'
 
 	-- Undotree
-	use ('mbbill/undotree')
+	use 'mbbill/undotree'
 
 	-- Fugitive
-	use ('tpope/vim-fugitive')
+	use 'tpope/vim-fugitive'
 
 
     -- Vim Tmux Navigator
@@ -34,15 +36,11 @@ return require('packer').startup(function(use)
     }
 
 	-- Colorscheme
-    use 'shaunsingh/nord.nvim'
 	use 'folke/tokyonight.nvim'
-	vim.cmd[[colorscheme tokyonight-storm]]
+	vim.cmd.colorscheme("tokyonight-storm")
 
     -- lualine
-    use {
-        'nvim-lualine/lualine.nvim',
-        -- requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-    }
+    use 'nvim-lualine/lualine.nvim'
 
     -- autotag 
     use 'windwp/nvim-ts-autotag'
