@@ -1,8 +1,10 @@
+local custom_tokyo = require'lualine.themes.tokyonight'
+-- custom_tokyo.normal.c.bg = 'none'
 
 require('lualine').setup {
     options = {
         icons_enabled = true,
-        theme = 'tokyonight',
+        theme = custom_tokyo,
         component_separators = { left = '', right = ''},
         section_separators = { left = '', right = ''},
         disabled_filetypes = {

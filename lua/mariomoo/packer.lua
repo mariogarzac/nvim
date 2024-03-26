@@ -51,7 +51,7 @@ return require('packer').startup(function(use)
     -- git-signs
     use 'lewis6991/gitsigns.nvim'
 
-    -- lsp-zero
+	-- lsp-zero
 	use {
 		'VonHeikemen/lsp-zero.nvim',
 		branch = 'v1.x',

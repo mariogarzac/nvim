@@ -1,13 +1,9 @@
+local lspconfig = require('lspconfig')
 local lsp = require('lsp-zero').preset({
     name = 'recommended'
 })
 
 lsp.nvim_workspace()
-
-lsp.ensure_installed = ({
-    'gopls',
-    'templ',
-})
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
@@ -22,9 +18,14 @@ lsp.setup_nvim_cmp({
     mapping = cmp_mappings,
 })
 
+lsp.ensure_installed = ({
+    'gopls',
+    'lsp-templ',
+})
+
 lsp.set_basic_mappings = false
 
-lsp.on_attach(function(_, bufnr)
+lsp.on_attach(function(client, bufnr)
     local opts = {buffer = bufnr, remap = false}
 
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -38,6 +39,15 @@ lsp.on_attach(function(_, bufnr)
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
+
+
+lspconfig.tailwindcss.setup({
+    filetypes = {"html", "templ"}
+})
+
+lspconfig.emmet_language_server.setup({
+    filetypes = {"html", "templ"}
+})
 
 lsp.setup()
 
