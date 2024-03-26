@@ -24,3 +24,4 @@ vim.keymap.set("n", "<leader>ee","oif err != nil {<CR>}<Esc>Oreturn err<Esc>")
 
 -- reindent the code
 vim.keymap.set("n", "<leader>rf","gg<C-v><S-G>=<C-o>")
+
