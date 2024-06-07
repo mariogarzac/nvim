@@ -11,14 +11,20 @@ vim.filetype.add({
     }
 })
 
--- vim.api.nvim_exec([[
---   autocmd BufNewFile,BufRead *.templ set filetype=templ
--- ]], false)
-
 autocmd({"BufWritePre"}, {
     group = moo,
     pattern = "*",
     command = [[%s/\s\+$//e]],
+})
+
+autocmd({"BufWritePre"}, {
+    group = moo,
+    pattern = "*.go",
+    callback = function()
+        local cursor_pos = vim.api.nvim_win_get_cursor(0)
+        vim.api.nvim_command('silent %!gofmt')
+        vim.api.nvim_win_set_cursor(0, cursor_pos)
+    end
 })
 
 autocmd('LspAttach', {
@@ -41,3 +47,7 @@ autocmd('LspAttach', {
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
+
+-- vim.api.nvim_exec([[
+--   autocmd BufNewFile,BufRead *.templ set filetype=templ
+-- ]], false)

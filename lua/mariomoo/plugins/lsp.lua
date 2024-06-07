@@ -42,8 +42,38 @@ return {
                             }
                         }
                     }
+                end,
+                ["emmet_language_server"] = function()
+                    require("lspconfig").emmet_language_server.setup{
+                        filetypes = {
+                            "templ", "html"
+                        },
+                    }
                 end
-            }
+            },
+            ["eslint"] = function()
+                require("lspconfig").eslint.setup({
+                    settings = {
+                        format = { enable = true },  -- Enable formatting
+                        lintTask = {
+                            enable = true
+                        }
+                    }
+                })
+            end,
+            ["tsserver"] = function()
+                require("lspconfig").tsserver.setup({
+                    filetypes = { "typescript", "typescriptreact" },
+                    root_dir = require("lspconfig").util.root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git"),
+                    settings = {
+                        typescript = {
+                            preferences = {
+                                importModuleSpecifier = "relative"
+                            },
+                        },
+                    },
+                })
+            end
         })
 
         -- diagnostics
