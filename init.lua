@@ -21,9 +21,23 @@ autocmd({"BufWritePre"}, {
     group = moo,
     pattern = "*.go",
     callback = function()
-        local cursor_pos = vim.api.nvim_win_get_cursor(0)
-        vim.api.nvim_command('silent %!gofmt')
-        vim.api.nvim_win_set_cursor(0, cursor_pos)
+      local cursor_pos = vim.api.nvim_win_get_cursor(0)
+      local row = cursor_pos[1]
+      local col = cursor_pos[2]
+
+      local line_count = vim.api.nvim_buf_line_count(0)
+
+      vim.api.nvim_command('silent %!gofmt')
+
+      local new_line_count = vim.api.nvim_buf_line_count(0)
+
+      if new_line_count < line_count then
+        row = math.max(1, row - (line_count - new_line_count))
+      elseif new_line_count > line_count then
+        row = math.min(new_line_count, row + (new_line_count - line_count))
+      end
+
+      vim.api.nvim_win_set_cursor(0, {row, col})
     end
 })
 
