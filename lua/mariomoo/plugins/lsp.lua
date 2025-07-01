@@ -16,14 +16,12 @@ return {
     },
 
     config = function()
-        -- lsp
         require("fidget").setup()
         require("mason").setup()
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "gopls",
                 "lua_ls",
-                "templ",
                 "golangci_lint_ls",
             },
             handlers = {
@@ -46,10 +44,15 @@ return {
                 ["emmet_language_server"] = function()
                     require("lspconfig").emmet_language_server.setup{
                         filetypes = {
-                            "templ", "html"
+                            "vue", "templ", "html"
                         },
                     }
-                end
+                end,
+                ["vue_ls"] = function()
+                  require("lspconfig").vue_ls.setup({
+                    filetypes = { "vue", "javascript", "typescript", "javascriptreact", "typescriptreact" },
+                  })
+                end,
             },
             ["eslint"] = function()
                 require("lspconfig").eslint.setup({
@@ -63,7 +66,7 @@ return {
             end,
             ["tsserver"] = function()
                 require("lspconfig").tsserver.setup({
-                    filetypes = { "typescript", "typescriptreact" },
+                    filetypes = { "typescript", "typescriptreact", "javascript" },
                     root_dir = require("lspconfig").util.root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git"),
                     settings = {
                         typescript = {
@@ -73,7 +76,7 @@ return {
                         },
                     },
                 })
-            end
+            end,
         })
 
         -- diagnostics

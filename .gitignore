@@ -46,6 +46,7 @@ Temporary Items
 ../vim/.vimrc.swp
 vim/pack/
 vim/plugged/
+tmp/
 
 # Session
 Session.vim
@@ -78,7 +79,7 @@ tags
 # Support for Project snippet scope
 !.vscode/*.code-snippets
 
-# packer compiled 
+# packer compiled
 plugin/packer_compiled.lua
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,visualstudiocode,vim
