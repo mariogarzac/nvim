@@ -9,12 +9,13 @@
 
 return {
     {
-    "folke/tokyonight.nvim",
+    -- "folke/tokyonight.nvim",
+    "neanias/everforest-nvim",
     lazy = false,
     priority = 1001,
     config = function()
-        require("tokyonight").setup({
-            style = "storm",
+        require("everforest").setup({
+            background = "hard",
             transparent = false,
             terminal_colors = true,
             styles = {
@@ -22,7 +23,8 @@ return {
                 floats = "dark",
             }
         })
-        vim.cmd("colorscheme tokyonight")
+        vim.cmd("colorscheme everforest")
     end
   },
 }
+

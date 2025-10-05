@@ -1,13 +1,13 @@
 return {
     "nvim-lualine/lualine.nvim",
     config = function()
-        local custom_tokyo = require'lualine.themes.tokyonight'
+        -- local custom_tokyo = require'lualine.themes.tokyonight'
         -- custom_tokyo.normal.c.bg = 'none'
 
         require('lualine').setup {
             options = {
                 icons_enabled = true,
-                theme = custom_tokyo,
+                theme = "everforest",
                 component_separators = { left = '', right = ''},
                 section_separators = { left = '', right = ''},
                 disabled_filetypes = {
